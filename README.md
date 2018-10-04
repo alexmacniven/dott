@@ -1,2 +1,3 @@
-# cli.schedule
-Adds scheduling functionality to a cli application
+# Do This Then (dott)
+
+A simple scheduling package
