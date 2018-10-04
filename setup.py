@@ -8,9 +8,9 @@ from setuptools import find_packages, setup, Command
 
 
 # Package meta-data
-NAME = 'cli_schedule'
-DESCRIPTION = 'Extension for `cli` applications to add scheduling.'
-URL = 'https://github.com/alexmacniven/cli.schedule'
+NAME = 'dott'
+DESCRIPTION = 'A simple scheduling package.'
+URL = 'https://github.com/alexmacniven/dott'
 EMAIL = 'apmacniven@outlook.com'
 AUTHOR = 'Alex Macniven'
 
