@@ -1,14 +1,14 @@
-# schedule.schedule
+# dott.dott
 
 from datetime import datetime, timedelta
 from time import sleep
 
 
-class Schedule(object):
+class Dott(object):
     """The Schedule class."""
 
     def __init__(self, func, rule, time, *targs, msg=False, cprint=print):
-        """Constructs an instance of Schedule.
+        """Constructs an instance of Dott.
 
         Args:
             func: A function to invoke
