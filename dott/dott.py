@@ -63,7 +63,9 @@ class Dott(object):
         """Calculates the next time the function is run."""
         # if rule is --hour, set the next run time as now + hour
         if self.rule == 'hour':
-            self.next_run = datetime.now() + timedelta(hours=self.times[0])
+            self.next_run = datetime.now() + timedelta(
+                hours=int(self.times[0])
+            )
         elif self.rule == 'day':
             # Get the current day, month, and year values.
             current = datetime.now()
