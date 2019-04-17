@@ -15,10 +15,11 @@ class Runner(object):
     def __init__(self, func, timer, calc_next_run):
         """Inits a new instance of Runner."""
         self.func = func
-        self._timer = timer
+        self._timer = None
         self.next_run = None
         self.has_run = False
         self.calc_next_run = calc_next_run
+        self.timer = timer
         self.run()
 
     @property
