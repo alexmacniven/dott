@@ -54,7 +54,10 @@ class Runner(object):
                 self.func()
                 self.has_run = True
             else:
-                sleep(60)
+                try:
+                    sleep(10)
+                except KeyboardInterrupt:
+                    raise SystemExit
 
 
 class HourRunner(Runner):
