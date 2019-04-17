@@ -1,1 +1,1 @@
-from .dott import Dott
+from .api import dott
