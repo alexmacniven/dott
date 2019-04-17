@@ -72,7 +72,7 @@ class DayRunner(Runner):
     """The DayRunner class inherits from Runner."""
     def __init__(self, func, timer):
         """Inits a new instance of DayRunner."""
-        Runner.__init__(self, func, timer, self.calc_next_run)
+        Runner.__init__(self, func, timer, self._calc_next_run)
 
     @staticmethod
     def _calc_next_run(timer):
