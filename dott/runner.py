@@ -44,20 +44,26 @@ class Runner(object):
 
 
     def run(self):
-        self.func()
+        self.invoke_func()
         self.has_run = True
         while True:
             if self.has_run:
                 self.next_run = self.calc_next_run(self.timer)
                 self.has_run = False    
             if self.next_run < datetime.now():
-                self.func()
+                self.invoke_func()
                 self.has_run = True
             else:
                 try:
                     sleep(10)
                 except KeyboardInterrupt:
                     raise SystemExit
+
+    def invoke_func(self):
+        """Invokes function at self.func"""
+        msg = "<{0} @ {1}>"
+        print(msg.format(datetime.now(), self.func.__name__))
+        self.func()
 
 
 class HourRunner(Runner):
