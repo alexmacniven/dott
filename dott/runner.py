@@ -69,7 +69,7 @@ class Runner(object):
 
 class HourRunner(Runner):
     """The HourRunner class inherits from Runner."""
-    def __init__(self, func, timer, run_on_init=True):
+    def __init__(self, func, timer, run_on_init):
         """Inits a new instance of HourRunner."""
         Runner.__init__(self, func, timer, self._calc_next_run, run_on_init)
 
@@ -80,7 +80,7 @@ class HourRunner(Runner):
 
 class DayRunner(Runner):
     """The DayRunner class inherits from Runner."""
-    def __init__(self, func, timer, run_on_init=True):
+    def __init__(self, func, timer, run_on_init):
         """Inits a new instance of DayRunner."""
         Runner.__init__(self, func, timer, self._calc_next_run, run_on_init)
 
