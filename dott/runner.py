@@ -12,7 +12,7 @@ class Runner(object):
         timer: Timer values, describing time between func execution.
         next_run: A function calculating the next run time.
     """
-    def __init__(self, func, timer, calc_next_run):
+    def __init__(self, func, timer, calc_next_run, run_on_init):
         """Inits a new instance of Runner."""
         self.func = func
         self._timer = None
@@ -20,7 +20,7 @@ class Runner(object):
         self.has_run = False
         self.calc_next_run = calc_next_run
         self.timer = timer
-        self.run()
+        self.run(run_on_init)
 
     @property
     def timer(self):
@@ -43,8 +43,9 @@ class Runner(object):
         return datetime.now()
 
 
-    def run(self):
-        self.invoke_func()
+    def run(self, run_on_init):
+        if run_on_init:
+            self.invoke_func()
         self.has_run = True
         while True:
             if self.has_run:
@@ -68,9 +69,9 @@ class Runner(object):
 
 class HourRunner(Runner):
     """The HourRunner class inherits from Runner."""
-    def __init__(self, func, timer):
+    def __init__(self, func, timer, run_on_init=True):
         """Inits a new instance of HourRunner."""
-        Runner.__init__(self, func, timer, self._calc_next_run)
+        Runner.__init__(self, func, timer, self._calc_next_run, run_on_init)
 
     @staticmethod
     def _calc_next_run(timer):
@@ -79,9 +80,9 @@ class HourRunner(Runner):
 
 class DayRunner(Runner):
     """The DayRunner class inherits from Runner."""
-    def __init__(self, func, timer):
+    def __init__(self, func, timer, run_on_init=True):
         """Inits a new instance of DayRunner."""
-        Runner.__init__(self, func, timer, self._calc_next_run)
+        Runner.__init__(self, func, timer, self._calc_next_run, run_on_init)
 
     @staticmethod
     def _calc_next_run(timer):
